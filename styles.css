@@ -23,9 +23,9 @@
 }
 
 :root {
-  --text-color-primary: #717b90;
+  --text-color-primary: #464c58;
   --text-color-light: #5e626b;
-  --link-color-primary: #b4bac4;
+  --link-color-primary: #484a4d;
   --border-color-primary: #1a1f29;
   --border-color-light: #cccccc;
   --brand-blue: #171c8f;
@@ -37,7 +37,7 @@
 
 a {
   text-decoration: none;
-  outline: none;
+  outline: transparent;
 }
 
 p {
@@ -84,7 +84,7 @@ button {
   background: none;
   padding: 0;
   margin: 0;
-  outline: none;
+  outline: transparent;
 }
 
 button {
@@ -155,6 +155,10 @@ fieldset legend {
   background-color: #292fad;
 }
 
+.btn_primary:focus {
+  background-color: #292fad;
+}
+
 .btn_secondary {
   background-color: #ccc;
   color: #fff;
@@ -170,6 +174,10 @@ fieldset legend {
 
 .btn_secondary.btn_hollow:hover {
   border-color: var(--border-color-primary);
+}
+
+.btn_secondary.btn_hollow:focus {
+  border-color: var(--brand-blue);
 }
 
 .input {
@@ -214,9 +222,15 @@ fieldset legend {
   max-width: 139px;
 }
 
+.header__logo:focus {
+  outline: var(--brand-blue) solid 1px;
+  border-radius: 4px;
+}
+
 .header__logo-picture {
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .header__menu-main {
@@ -246,6 +260,11 @@ fieldset legend {
 
 .menu__link:hover {
   text-decoration: underline;
+}
+
+.menu__link:focus {
+  outline: var(--brand-blue) solid 1px;
+  border-radius: 4px;
 }
 
 @media (max-width: 900px) {
@@ -321,10 +340,15 @@ fieldset legend {
   text-decoration: underline;
 }
 
+.breadcrumbs__link:focus {
+  outline: var(--brand-blue) solid 1px;
+  border-radius: 4px;
+}
+
 .breadcrumbs__current {
   display: inline-block;
   font-size: 12px;
-  color: #74767B;
+  color: #74767b;
 }
 
 .footer {
@@ -365,7 +389,7 @@ fieldset legend {
   .footer__columns {
     flex-wrap: wrap;
     margin-bottom: 0;
-  }  
+  }
   .footer__col:nth-child(1) {
     order: 3;
     width: 100%;
@@ -378,31 +402,31 @@ fieldset legend {
     width: 50%;
     max-width: 50%;
     padding-right: 20px;
-  }  
+  }
   .footer__col:last-child {
     order: 2;
     width: 50%;
     max-width: 50%;
     padding-left: 20px;
-  }    
+  }
 }
 
 @media (max-width: 460px) {
   .footer {
     padding-top: 40px;
-  }  
+  }
   .footer__col:nth-child(2) {
     width: 100%;
     max-width: 100%;
     padding-right: 0;
     text-align: center;
-  }  
+  }
   .footer__col:last-child {
     width: 100%;
     max-width: 100%;
     padding-left: 0;
     text-align: center;
-  }    
+  }
 }
 
 .footer__copyright {
@@ -434,6 +458,11 @@ fieldset legend {
   text-decoration: underline;
 }
 
+.footer__list-link:focus {
+  outline: var(--brand-blue) solid 1px;
+  border-radius: 4px;
+}
+
 .footer__heading {
   font-size: 13px;
   line-height: 1.4;
@@ -460,7 +489,7 @@ fieldset legend {
 @media (max-width: 768px) {
   .footer__address .social {
     justify-content: center;
-  }  
+  }
 }
 
 .social {
@@ -488,6 +517,10 @@ fieldset legend {
 
 .social__logo:focus-visible path,
 .social__logo:hover path {
+  fill: var(--brand-blue);
+}
+
+.social__link:focus .social__logo path {
   fill: var(--brand-blue);
 }
 
@@ -543,6 +576,14 @@ fieldset legend {
   display: none;
 }
 
+.accordion__item-title:hover {
+  background-color: var(--border-color-light);
+}
+
+.accordion__item-title:focus {
+  outline: var(--brand-blue) solid 1px;
+}
+
 .accordion__item-body {
   font-size: 16px;
   line-height: 1.4;
@@ -567,7 +608,7 @@ fieldset legend {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  outline: none;
+  outline: transparent;
 }
 
 .product-card__left {
@@ -633,6 +674,7 @@ fieldset legend {
 .product-card__photo-big-picture {
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 .product-card__form {
@@ -707,11 +749,21 @@ fieldset legend {
   height: 50px;
 }
 
+.product-size:focus {
+  border: 1px var(--brand-blue) solid;
+}
+
 .size-guide-link {
   display: block;
   margin-top: 10px;
   padding: 10px 0;
   text-decoration: underline;
+  width: fit-content;
+}
+
+.size-guide-link:focus {
+  outline: var(--brand-blue) solid 1px;
+  border-radius: 4px;
 }
 
 .modal {
@@ -727,7 +779,7 @@ fieldset legend {
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -737,7 +789,7 @@ fieldset legend {
   position: absolute;
   box-sizing: border-box;
   background-color: #fff;
-  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -757,8 +809,6 @@ fieldset legend {
   border: 1px solid;
   padding: 10px;
 }
-
-
 
 .product-card__infolabel {
   font-size: 16px;
@@ -801,13 +851,17 @@ fieldset legend {
 }
 
 .input-quantity__btn:hover {
-  outline: 1px var(--border-color-primary) solid;
+  outline: var(--border-color-primary) solid 1px;
   z-index: 1;
   color: var(--text-color-primary);
 }
 
 .input-quantity__btn:focus-visible {
   z-index: 1;
+}
+
+.input-quantity__btn:focus {
+  border: 1px var(--brand-blue) solid;
 }
 
 .input-quantity__field {
@@ -818,8 +872,8 @@ fieldset legend {
   color: var(--text-color-primary);
 }
 
-.input-quantity__field:focus-visible {
-  border: none;
+.input-quantity__field:focus {
+  border: 1px var(--brand-blue) solid;
 }
 
 .input-quantity__field::-webkit-outer-spin-button,
@@ -904,6 +958,14 @@ fieldset legend {
   border: 1px var(--border-color-primary) solid;
   padding: 2px;
   cursor: default;
+}
+
+.input-radio__input:hover + .input-radio-color {
+  border: 1px var(--brand-blue) solid;
+}
+
+.input-radio__input:focus + .input-radio-color {
+  border: 1px var(--brand-blue) solid;
 }
 
 .input-radio__input:disabled + .input-radio-color {
@@ -1026,6 +1088,14 @@ fieldset legend {
   text-decoration: none;
 }
 
+.products-grid__item-title:hover {
+  text-decoration: underline;
+}
+
+.products-grid__item-title:focus {
+  outline: var(--border-color-primary) solid 1px;
+}
+
 .products-grid__item-price {
   font-size: 16px;
   line-height: 1.3;
@@ -1069,6 +1139,10 @@ fieldset legend {
   height: 100%;
 }
 
+.colors-palette__sample:focus {
+  outline: var(--brand-blue) solid 1px;
+}
+
 .product-tags {
   display: flex;
   justify-content: flex-start;
@@ -1087,4 +1161,39 @@ fieldset legend {
   margin-left: 4px;
   margin-right: 4px;
   margin-bottom: 8px;
+}
+
+.input-email:focus {
+  border: 1px solid var(--brand-blue);
+}
+
+.input-agree:focus {
+  outline: var(--brand-blue) solid 1px;
+}
+
+.skip-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--brand-blue);
+  background-color: var(--border-color-light);
+  padding: 10px;
+  transform: translateY(-100%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
