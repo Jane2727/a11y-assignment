@@ -40,22 +40,17 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const modalTarget = document.querySelectorAll(".modal-target");
-  modalTarget.forEach((modalTarget) => {
-    modalTarget.addEventListener("click", () => {
-      const modalWindow = document.querySelector(".modal");
-      showModal(modalWindow);
-    });
+  const dialog = document.querySelector("dialog");
+  document.querySelector("#openDialog").addEventListener("click", (e) => {
+    e.preventDefault();
+    dialog.showModal();
   });
-  const modalBackdrop = document.querySelectorAll(".modal-backdrop");
-  modalBackdrop.forEach((modalBackdrop) => {
-    modalBackdrop.addEventListener("click", (e) => {
-      const modalWindow = e.target.closest(".modal");
-      modalWindow.classList.remove("show-modal");
-    });
+  document.querySelector("#closeDialog").addEventListener("click", (e) => {
+    e.preventDefault();
+    dialog.close();
   });
-
-  const showModal = (modalWindow) => {
-    modalWindow.classList.add("show-modal");
-  };
+  document.querySelector("#modalBackdrop").addEventListener("click", (e) => {
+    e.preventDefault();
+    dialog.close();
+  });
 });

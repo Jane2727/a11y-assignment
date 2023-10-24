@@ -766,8 +766,22 @@ fieldset legend {
   border-radius: 4px;
 }
 
-.modal {
-  display: none;
+.modal-body__close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 1px solid var(--text-color-light);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.modal-body__close-button:hover {
+  background-color: var(--border-color-light);
+}
+
+.modal-body__close-button:focus {
+  border: 1px solid var(--brand-blue);
 }
 
 .modal-backdrop {
@@ -1094,6 +1108,7 @@ fieldset legend {
 
 .products-grid__item-title:focus {
   outline: var(--border-color-primary) solid 1px;
+  border-radius: 4px;
 }
 
 .products-grid__item-price {

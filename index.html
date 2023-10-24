@@ -9,25 +9,25 @@
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
-    <main class="main-grid">
-      <div class="header">
+    <div class="main-grid">
+      <header class="header">
         <div class="container header__container">
           <a class="skip-link" href="#skipLinkTarget">Skip to Content</a>
-          <div class="header__menu-main">
-            <ul class="menu" role="menu">
-              <li class="menu__item" role="menuitem">
+          <nav class="header__menu-main">
+            <ul class="menu">
+              <li class="menu__item">
                 <a class="menu__link" href="#">Women</a>
               </li>
-              <li class="menu__item" role="menuitem">
+              <li class="menu__item">
                 <a class="menu__link" href="#">Men</a>
               </li>
-              <li class="menu__item" role="menuitem">
+              <li class="menu__item">
                 <a class="menu__link" href="#">Kids</a>
               </li>
-              <li class="menu__item" role="menuitem">
+              <li class="menu__item">
                 <a class="menu__link" href="#">Company</a>
               </li>
-              <li role="menuitem">
+              <li>
                 <h1>
                   <a class="header__logo" href="/">
                     <img
@@ -38,21 +38,21 @@
                   </a>
                 </h1>
               </li>
-              <li class="menu__item" role="menuitem">
+              <li class="menu__item">
                 <a class="menu__link" href="#">Account</a>
               </li>
-              <li class="menu__item" role="menuitem">
+              <li class="menu__item">
                 <a class="menu__link" href="#">Search</a>
               </li>
-              <li class="menu__item" role="menuitem">
+              <li class="menu__item">
                 <a class="menu__link" href="#">Cart (0)</a>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
-      </div>
+      </header>
 
-      <div class="page-content">
+      <main class="page-content">
         <div class="container">
           <div>
             <ul class="breadcrumbs">
@@ -85,12 +85,20 @@
                     <option value="l">L</option>
                     <option value="xl">XL</option>
                   </select>
-                  <a class="size-guide-link modal-target" href="#sizeGuide"
-                    >Size Guide</a
-                  >
-                  <div class="modal">
-                    <div class="modal-backdrop">
+                  <button class="size-guide-link modal-target" id="openDialog">
+                    Size Guide
+                  </button>
+
+                  <dialog class="modal">
+                    <div class="modal-backdrop" id="modalBackdrop">
                       <div class="modal-body size-guide">
+                        <button
+                          id="closeDialog"
+                          class="modal-body__close-button"
+                          aria-label="Close dialog"
+                        >
+                          X
+                        </button>
                         <h3 class="heading-2">Size guide</h3>
                         <p>Some description about the sizes</p>
                         <table class="size-guide__table">
@@ -117,7 +125,7 @@
                         </table>
                       </div>
                     </div>
-                  </div>
+                  </dialog>
                 </div>
                 <fieldset class="product-card__parameter">
                   <legend class="product-card__label">
@@ -125,16 +133,17 @@
                       - <span id="productColorValue">White</span></span
                     >
                   </legend>
-                  <ul class="input-group">
+                  <ul class="input-group" role="radiogroup">
                     <li class="input-group__item">
                       <label class="input-radio" for="productColorWhite">
                         <input
                           class="input-radio__input"
                           type="radio"
-                          name="product_color_white"
+                          name="product_color"
                           id="productColorWhite"
                           data-name-display="White"
                           value="white"
+                          role="radio"
                           checked
                         />
                         <span class="input-radio__visual input-radio-color">
@@ -154,10 +163,11 @@
                         <input
                           class="input-radio__input"
                           type="radio"
-                          name="product_color_black"
+                          name="product_color"
                           id="productColorBlack"
                           data-name-display="Black"
                           value="black"
+                          role="radio"
                         />
                         <span class="input-radio__visual input-radio-color">
                           <span
@@ -173,10 +183,11 @@
                         <input
                           class="input-radio__input"
                           type="radio"
-                          name="product_color_gray"
+                          name="product_color"
                           id="productColorGray"
                           data-name-display="Gray"
                           value="gray"
+                          role="radio"
                         />
                         <span class="input-radio__visual input-radio-color">
                           <span
@@ -192,10 +203,11 @@
                         <input
                           class="input-radio__input"
                           type="radio"
-                          name="product_color_purple"
+                          name="product_color"
                           id="productColorPurple"
                           data-name-display="Purple latte"
                           value="purple"
+                          role="radio"
                         />
                         <span class="input-radio__visual input-radio-color">
                           <span
@@ -209,12 +221,13 @@
                     <li class="input-group__item">
                       <label class="input-radio" for="productColorBarelyPink">
                         <input
-                          class="input-radio__input"
+                          class="input-radio__input input-disabled"
                           type="radio"
-                          name="product_color_pink"
+                          name="product_color"
                           id="productColorBarelyPink"
                           data-name-display="BarelyPink"
                           value="pink"
+                          role="radio"
                           disabled
                         />
                         <span class="input-radio__visual input-radio-color">
@@ -231,12 +244,13 @@
                     <li class="input-group__item">
                       <label class="input-radio" for="productColorSemolina">
                         <input
-                          class="input-radio__input"
+                          class="input-radio__input input-disabled"
                           type="radio"
-                          name="product_color_semolina"
+                          name="product_color"
                           id="productColorSemolina"
                           data-name-display="Semolina"
                           value="semolina"
+                          role="radio"
                           disabled
                         />
                         <span class="input-radio__visual input-radio-color">
@@ -259,7 +273,11 @@
                     >Quantity</span
                   >
                   <div class="input-quantity">
-                    <button class="input-quantity__btn" data-action="decrease">
+                    <button
+                      class="input-quantity__btn"
+                      data-action="decrease"
+                      type="button"
+                    >
                       &minus;
                     </button>
                     <input
@@ -270,15 +288,21 @@
                       value="1"
                       aria-labelledby="productCardLabel"
                     />
-                    <button class="input-quantity__btn" data-action="increase">
+                    <button
+                      class="input-quantity__btn"
+                      data-action="increase"
+                      type="button"
+                    >
                       &plus;
                     </button>
                   </div>
                 </div>
-                <button class="btn btn_secondary btn_hollow">
+                <button class="btn btn_secondary btn_hollow" type="button">
                   Add to cart
                 </button>
-                <button class="btn btn_primary">Buy it now</button>
+                <button class="btn btn_primary" type="submit">
+                  Buy it now
+                </button>
               </form>
               <div class="product-card__description">
                 <p>
@@ -566,9 +590,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </main>
 
-      <div class="footer">
+      <footer class="footer">
         <div class="container footer__container">
           <div class="footer__columns">
             <section class="footer__col">
@@ -700,8 +724,8 @@
           </div>
           <small class="footer__copyright">© Susparsa 2021</small>
         </div>
-      </div>
-    </main>
+      </footer>
+    </div>
     <script src="scripts.js"></script>
   </body>
 </html>
